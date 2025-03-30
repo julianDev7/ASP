@@ -6,11 +6,11 @@ import java.util.Scanner;
 public class PublicadorRabbit {
     public static void main(String[] args) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-    factory.setHost("moose-01.rmq.cloudamqp.com");
-    factory.setUsername("fkrLsku");
-    factory.setPassword("kqkPx3QUSwHMpg7lSxLbSkJq0QXSCMBB");
-    factory.setVirtualHost("fkrLsku");
-    factory.setPort(5672);
+    factory.setHost("");
+    factory.setUsername("");
+    factory.setPassword("");
+    factory.setVirtualHost("");
+    factory.setPort();
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
@@ -25,7 +25,7 @@ public class PublicadorRabbit {
             String precio = scanner.nextLine();
 
             String message = nombre + ", " + cantidad + ", " + precio;
-        channel.basicPublish("", "novedades.netflix", null, message.getBytes());
+        channel.basicPublish("", "", null, message.getBytes());
         System.out.println("Mensaje enviado: " + message);
 
         System.out.print("¿Desea enviar otro mensaje? (Y/N): ");
